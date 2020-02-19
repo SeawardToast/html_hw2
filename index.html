@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<html>
+<body>
+
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<section>
+  <h1>Problem #1</h1>
+</section>
+
+<p>
+  The date is:
+</p>
+
+<p id="demo"></p>
+
+<section>
+  <h2>Problem #2</h2>
+</section>
+
+<form action="/action_page.php" autocomplete="on">
+ <label>Shipping Information</label><br><br>
+ <label for="name">First name:</label>
+ <input type="text" id="name" name="name"><br><br>
+ <label for="zip">Zip code:</label>
+ <input type="text" id="zip" name="zip" autocomplete="off"><br><br>
+
+ <input type="checkbox" id="box" name="box" onchange="foo(this)">Autocomplete for billing information</input><br><br>
+
+ <label>Billing Information</label><br><br>
+ <label for="name">First name:</label>
+ <input type="text" id="name2" name="name2"><br><br>
+ <label for="zip">Zip code:</label>
+ <input type="text" id="zip2" name="zip2" autocomplete="off"><br><br>
+</form>
+
+
+
+<script>
+function foo(a){
+  if(a.checked){
+    document.getElementById("name2").value = document.getElementById("name").value;
+    document.getElementById("zip2").value = document.getElementById("zip").value;
+  } else {
+    document.getElementById("name2").value = null;
+    document.getElementById("zip2").value = null;
+  }
+}
+
+function show_image(){
+  document.getElementById("my_img").src = document.getElementById("img_name").value;
+}
+
+var d = new Date("April 9, 2017 03:27:03 PM");
+var options = { weekday: 'long', month: 'long', day: 'numeric', time: 'numeric'}
+document.getElementById("demo").innerHTML = moment(d).format('dddd MMMM, D, h:m:s a');
+</script>
+
+<section>
+  <h2>Problem #3</h2>
+</section>
+
+<label>Image name (including extension.. use photo.png and photo2.png to test)</label>
+<input type="text" id="img_name" name="name">
+<button onclick="show_image()">Display Image</button>
+<img src="" id="my_img" alt="Image" width="200" height="200">
+
+
+</body>
+</html>
